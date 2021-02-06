@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="reset.css" type="text/css">
+        <link rel="stylesheet" href="style.css">
+        <title>Ma page web</title>
+
+        <script>
+            var audioPlayer = null;
+            // Listen for NUI Messages.
+            window.addEventListener('message', function(event) {
+                // Check for playSound transaction
+                if (event.data.transactionType == "playSound") {
+				
+                  if (audioPlayer != null) {
+                    audioPlayer.pause();
+                  }
+
+                  audioPlayer = new Howl({src: ["./sounds/" + event.data.transactionFile + ".ogg"]});
+                  audioPlayer.volume(event.data.transactionVolume);
+                  audioPlayer.play();
+                }
+            });
+        </script>
+    </head>
+
+    <body>
+        <!--Box Announce : -->
+        <div id="boxBackground">
+            <header>
+                <h1>WANTED</h1>
+            </header>
+
+            <div class="logo"></div>
+            <div class="textBox">
+                <p class="reason">Police Departement currently holds two arrest warrants who is believed to be somewhere in the downtown area of los santos, if you find the suspect please call the 911.</p>
+                <br>
+                <br>
+                <span class="nameText">SUSPECT :</span>
+                <span class="FirstName">Alex</span>
+                <span class="SecondName">Giroud</span>
+            </div>
+        </div>
+
+        <!--Form : -->
+        <form class="form">
+            <h2>Form</h2>
+            <p type="FirstName:"><input placeholder="Type the first name here ..." id="firstName" maxlength="20"></input></p>
+            <p type="LastName:"><input placeholder="Type the last name here ..." id="lastName" maxlength="20" ></input></p>
+            <p type="Reason:"><input placeholder="Type the reason here ..." id="reason" maxlength="167"></input></p>
+            <button id="submit">Validate</button>
+        </form>
+
+        <script src="./app.js" type="text/javascript"></script>
+    </body>
+</html>
