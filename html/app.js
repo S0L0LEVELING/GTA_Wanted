@@ -1,6 +1,6 @@
+
+ 
 $(function () {
-    var audioPlayer = null;
-    
     function display(bool) {
         if (bool) {
             $(".form").show();
@@ -22,6 +22,22 @@ $(function () {
 
     window.addEventListener('message', function(event) {
         var item = event.data;
+        var audioPlayer = null;
+
+        // Check for playSound transaction
+        if (event.data.transactionType == "playSound") {
+        
+            if (audioPlayer != null) 
+            {
+                audioPlayer.pause();
+            }
+
+            audioPlayer = new Howl({src: ["./sounds/" + event.data.transactionFile + ".ogg"]});
+            audioPlayer.volume(event.data.transactionVolume);
+            audioPlayer.play();
+        }
+
+
         if (item.type === "enableui") {
             if (item.activate == true) {
                 display(true)
@@ -51,10 +67,10 @@ $(function () {
     };
  
     //when the user clicks on the submit button, it will run
-    $("#submit").click(function () {
-        let vfirstName = $("#firstName").val();
-        let vlastName = $("#lastName").val();
-        let vReason = $("#reason").val();
+    $("#tr_validate").click(function () {
+        let vfirstName = $("#tr_fNameHolder").val();
+        let vlastName = $("#tr_lNameHolder").val();
+        let vReason = $("#tr_reasonHolder").val();
 
         //Check for first name input : 
         if (!vfirstName) {

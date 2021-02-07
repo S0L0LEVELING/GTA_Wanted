@@ -7,9 +7,6 @@ description 'Experimented html stuff'
 version '1.0.0'
 
 client_scripts {
-    "config.lua",
-    "client/translator.lua",
-    "language/**/*",
     "client/client_wanted.lua",
     "client/client_sounds.lua"
 }
@@ -22,6 +19,7 @@ server_scripts {
 ui_page "html/index.html"
 files {
     "html/index.html",
+    "html/config_language.js",
     "html/app.js",
     "html/style.css",
     "html/reset.css",
