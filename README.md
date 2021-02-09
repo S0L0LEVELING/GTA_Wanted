@@ -3,7 +3,7 @@ NUI FOR WANTED
 
 ## Screen :
 
-![WANTED]https://cdn.discordapp.com/attachments/554479498721099787/808817491631407134/1035c1b2bb92ae0885cec3b2192305ba51a25e2b.png)
+![WANTED](https://cdn.discordapp.com/attachments/554479498721099787/808817491631407134/1035c1b2bb92ae0885cec3b2192305ba51a25e2b.png)
 ![PersoCréation](https://cdn.discordapp.com/attachments/554479498721099787/808817588947648552/664d0f8691c1b5cea817e7788626fcbff5089117.jpeg)
 
 --------------||by Super.Cool.Ninja||--------------
