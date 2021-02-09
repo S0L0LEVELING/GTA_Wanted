@@ -11,9 +11,9 @@ $(function () {
 
     function displayWanted(bool) {
         if (bool) {
-            $("#boxBackground").show();
+            $("#Box-container").show();
         } else {
-            $("#boxBackground").hide();
+            $("#Box-container").hide();
         }
     }
 
@@ -48,10 +48,11 @@ $(function () {
 
         if (item.type === "wantedAnnouce") {
             if (item.activate == true) {
-                displayWanted(true)
                 $(".FirstName").text(event.data.firstName);
                 $(".SecondName").text(event.data.lastName);
-                $(".reason").text(event.data.dataReason);
+                $(".reasonWanted").text(event.data.dataReason);
+                displayWanted(true)
+               
             } else {
                 displayWanted(false)
             }
@@ -71,25 +72,9 @@ $(function () {
         let vfirstName = $("#tr_fNameHolder").val();
         let vlastName = $("#tr_lNameHolder").val();
         let vReason = $("#tr_reasonHolder").val();
+        let vTargetID = $("#tr_targetHolder").val();
 
-        //Check for first name input : 
-        if (!vfirstName) {
-            $.post("http://GTA_Wanted/error", JSON.stringify({
-                error: "There was no value in the input field"
-            }))
-            return
-        }
-
-        //Check for last name input : 
-        if (!vlastName) {
-            $.post("http://GTA_Wanted/error", JSON.stringify({
-                error: "There was no value in the input field"
-            }))
-            return
-        }
-
-        //Check for last name input : 
-        if (!vReason) {
+        if (!vfirstName || !vlastName || !vReason || !vTargetID) {
             $.post("http://GTA_Wanted/error", JSON.stringify({
                 error: "There was no value in the input field"
             }))
@@ -99,7 +84,8 @@ $(function () {
         $.post("http://GTA_Wanted/main", JSON.stringify({
             fName: vfirstName,
             lName: vlastName,
-            vreason : vReason
+            vreason : vReason,
+            targetId : vTargetID
         }))
         return;
     })

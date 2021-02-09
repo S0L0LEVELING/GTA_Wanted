@@ -7,6 +7,6 @@ end)
 
 --> This will show the Wanted Announce to all the player : 
 RegisterNetEvent("GTA_Prediction:RequestShowWanted")
-AddEventHandler("GTA_Prediction:RequestShowWanted", function(fname, lname, reason)
-    TriggerClientEvent('GTA_Prediction:ShowWanted', -1, fname, lname, reason)
+AddEventHandler("GTA_Prediction:RequestShowWanted", function(fname, lname, reason, targetID)
+    TriggerClientEvent('GTA_Prediction:ShowWanted', -1, fname, lname, reason, targetID)
 end)
