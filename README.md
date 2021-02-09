@@ -8,6 +8,9 @@ NUI FOR WANTED
 
 --------------||by Super.Cool.Ninja||--------------
 
+## Information 
+To change the language you can done that by going to html/config_language.js and then set en to fr. var config_language = 'en'; --> fr for french.
+
 ## Features
 - Form to enter the information of the player wanted
 - Target warned by ID
